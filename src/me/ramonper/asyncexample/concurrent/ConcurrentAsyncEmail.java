@@ -12,13 +12,13 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class ConcurrentAsyncEmail implements Asynchronous<ObjectEmail> {
+public class ConcurrentAsyncEmail {
 
     //now, created a pool of threads.
-    private static final ExecutorService threadPool = Executors.newFixedThreadPool(3);
+    private final ExecutorService threadPool = Executors.newFixedThreadPool(3);
 
     //the async function
-    public static void sendAsyncEmail(ObjectEmail obj) {
+    public void sendAsyncEmail(ObjectEmail obj) {
         System.out.println("Processing the task...");
         try {
             Future<String> future = threadPool.submit(obj);
@@ -40,7 +40,7 @@ public class ConcurrentAsyncEmail implements Asynchronous<ObjectEmail> {
         }
     }
 
-    private static SimpleEmail formEmail(ObjectEmail obj){
+    private SimpleEmail formEmail(ObjectEmail obj){
         String email = obj.getEmail();
         String password = obj.getEmailPassword();
 
@@ -62,9 +62,5 @@ public class ConcurrentAsyncEmail implements Asynchronous<ObjectEmail> {
         }
         return se;
     }
-
-    @Override
-    public void sendAsync(ObjectEmail param) {
-
-    }
+    
 }
