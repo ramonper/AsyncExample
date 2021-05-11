@@ -7,6 +7,9 @@ import org.apache.commons.mail.EmailException;
 import java.util.concurrent.ExecutionException;
 
 public class Main {
+    
+    private final ConcurrentAsyncEmail cae = new ConcurrentAsyncEmail();
+    
     public static void main(String[] strings){
         ObjectEmail objectEmail = new ObjectEmail();
         objectEmail.setEmail("Email"); //main email
@@ -16,13 +19,13 @@ public class Main {
 
         objectEmail.setRecipient("Destinatário");
 
-        ConcurrentAsyncEmail.sendAsyncEmail(objectEmail); // Envia o email
+        cae.sendAsyncEmail(objectEmail); // Envia o email
         //send the e-mail
 
         objectEmail.setRecipient("ramonpg696@gmail.com"); // Muda para um outro destinatário
         // change to other e-mail
 
-        ConcurrentAsyncEmail.sendAsyncEmail(objectEmail); // Envia outro email, para o novo destinatário.
+        cae.sendAsyncEmail(objectEmail); // Envia outro email, para o novo destinatário.
         // send another email, for new recipient
     }
 }
