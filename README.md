@@ -23,11 +23,11 @@ Caso queira acelerar o processo, após enviar o primeiro email, apenas altere o 
         
         objectEmail.setRecipient("Destinatário1");
 
-        ConcurrentAsyncEmail.sendAsyncEmail(objectEmail);
+        ConcurrentAsyncEmail#sendAsyncEmail(objectEmail);
         
         objectEmail.setRecipient("Destinatário2");
         
-        ConcurrentAsyncEmail.sendAsyncEmail(objectEmail);
+        ConcurrentAsyncEmail#sendAsyncEmail(objectEmail);
         
         objectEmail.setRecipient("Destinatário3");
         
